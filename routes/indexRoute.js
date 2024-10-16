@@ -22,10 +22,18 @@ router.get("/new", (req, res) => {
   res.render("form");
 });
 
-router.post("/new", (req, res) => {
-  console.log(req.body);
-  const authot = req.body.author;
-  const message = req.body.message;
+router.get("/:id", (req, res) => {
+  const id = req.params.id;
+  res.render("single", { message: messages[id] });
 });
+
+router.post("/new", (req, res) => {
+  const author = req.body.author;
+  const message = req.body.message;
+  messages.push({ text: message, user: author, added: new Date() });
+
+  res.redirect("/");
+});
+console.log(messages);
 
 module.exports = router;

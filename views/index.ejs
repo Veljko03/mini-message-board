@@ -10,7 +10,11 @@
     <a href="/new">New message</a>
     <ul>
       <% messages.map((message)=>{ %>
-      <li><%= message.text %></li>
+      <h3>
+        User:<%= message.user %> Text:<%= message.text %>
+        <a href="/<%= messages.indexOf(message) %>">Open</a>
+      </h3>
+
       <% }) %>
     </ul>
   </body>
