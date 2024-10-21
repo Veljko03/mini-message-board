@@ -9,13 +9,13 @@
     <h1>MY EJSSSSSSSSSSSSS</h1>
     <a href="/new">New message</a>
     <ul>
-      <% messages.map((message)=>{ %>
+      <% if (contacts) {%> <% contacts.map((contact)=>{ %>
       <h3>
-        User:<%= message.user %> Text:<%= message.text %>
-        <a href="/<%= messages.indexOf(message) %>">Open</a>
+        User:<%= contact.name %> Text:<%= contact.message %>
+        <a href="/<%= contacts.indexOf(contact) %>">Open</a>
       </h3>
 
-      <% }) %>
+      <% }) %><% } %>
     </ul>
   </body>
 </html>

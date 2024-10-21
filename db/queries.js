@@ -1,15 +1,15 @@
 const pool = require("./pool");
 
-async function getAllUsernames() {
-  const { rows } = await pool.query("SELECT * FROM usernames");
+async function allContacts() {
+  const { rows } = await pool.query("SELECT * FROM contacts");
   return rows;
 }
 
-async function insertUsername(username) {
-  await pool.query("INSERT INTO usernames (username) VALUES ($1)", [username]);
+async function insertContact(username, message) {
+  await pool.query("INSERT INTO contacts (name) VALUES ($1,$2)", [
+    username,
+    message,
+  ]);
 }
 
-module.exports = {
-  getAllUsernames,
-  insertUsername,
-};
+module.exports = { allContacts, insertContact };
