@@ -1,6 +1,6 @@
 const express = require("express");
 const index = require("./routes/indexRoute");
-
+require("dotenv").config();
 const app = express();
 //app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
