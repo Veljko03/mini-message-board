@@ -12,10 +12,13 @@ async function insertContact(username, message) {
   ]);
 }
 
-async function findOne(name) {
-  await pool.query("SELECT name,message FROM contacts WHERE name LIKE '%$1%'", [
-    name,
+async function findOne(id) {
+  const a = await pool.query("SELECT name,message FROM contacts WHERE id=$1", [
+    id,
   ]);
+  if (a.rows[0] != null) {
+    return a.rows[0];
+  }
 }
 
 module.exports = { allContacts, insertContact, findOne };

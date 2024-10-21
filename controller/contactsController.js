@@ -16,7 +16,11 @@ async function addNewContactPost(req, res) {
 }
 
 async function getSingleContact(req, res) {
-  console.log(req.body);
+  const { id } = req.params;
+  const single = await db.findOne(id);
+  // console.log(single);
+
+  res.render("single", { contact: single });
 }
 
 module.exports = {

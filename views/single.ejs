@@ -1,3 +1,6 @@
 <h1>Show single user</h1>
-<h3>User:<%= message.user %> Text:<%= message.text %></h3>
+<h3>
+  User:<% if (contact){ %> <%=contact.name %> Message: <%= contact.message %><%
+  }%>
+</h3>
 <a href="/">Go back</a>

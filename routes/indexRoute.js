@@ -21,9 +21,6 @@ router.get("/new", controller.addNewContactGet);
 
 router.post("/new", controller.addNewContactPost);
 
-// router.get("/:id", (req, res) => {
-//   const id = req.params.id;
-//   res.render("single", { message: messages[id] });
-// });
+router.get("/:id", controller.getSingleContact);
 
 module.exports = router;
