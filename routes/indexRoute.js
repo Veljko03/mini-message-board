@@ -17,21 +17,13 @@ const messages = [
 
 router.get("/", controller.getAllContacts);
 
-// router.get("/new", (req, res) => {
-//   res.render("form");
-// });
+router.get("/new", controller.addNewContactGet);
+
+router.post("/new", controller.addNewContactPost);
 
 // router.get("/:id", (req, res) => {
 //   const id = req.params.id;
 //   res.render("single", { message: messages[id] });
-// });
-
-// router.post("/new", (req, res) => {
-//   const author = req.body.author;
-//   const message = req.body.message;
-//   messages.push({ text: message, user: author, added: new Date() });
-
-//   res.redirect("/");
 // });
 
 module.exports = router;

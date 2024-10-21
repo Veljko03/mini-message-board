@@ -6,10 +6,16 @@ async function allContacts() {
 }
 
 async function insertContact(username, message) {
-  await pool.query("INSERT INTO contacts (name) VALUES ($1,$2)", [
+  await pool.query("INSERT INTO contacts (name,message) VALUES ($1,$2)", [
     username,
     message,
   ]);
 }
 
-module.exports = { allContacts, insertContact };
+async function findOne(name) {
+  await pool.query("SELECT name,message FROM contacts WHERE name LIKE '%$1%'", [
+    name,
+  ]);
+}
+
+module.exports = { allContacts, insertContact, findOne };
