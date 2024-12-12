@@ -16,9 +16,17 @@ async function addNewContactPost(req, res) {
 }
 
 async function getSingleContact(req, res) {
-  const { id } = req.params;
+  let { id } = req.params;
+  id = parseInt(id);
+  id += 1;
+  if (isNaN(id) || id <= 0) {
+    return res.status(400).send("Invalid ID provided.");
+  }
+
+  console.log(typeof id, " idtype");
+
   const single = await db.findOne(id);
-  // console.log(single);
+  console.log(single, " singleeee");
 
   res.render("single", { contact: single });
 }
