@@ -11,8 +11,8 @@
     <ul>
       <% if (contacts) {%> <% contacts.map((contact)=>{ %>
       <h3>
-        User:<%= contact.name %> Text:<%= contact.message %>
-        <a href="/<%= contacts.indexOf(contact) %>">Open</a>
+        User:<%= contact.name %> Text:<%= contact.message %> id:<%= contact.id
+        %> <a href="/<%= contact.id %>">Open</a>
       </h3>
 
       <% }) %><% } %>

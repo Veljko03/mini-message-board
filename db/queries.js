@@ -2,6 +2,8 @@ const pool = require("./pool");
 
 async function allContacts() {
   const { rows } = await pool.query("SELECT * FROM contacts");
+  console.log(rows, "rowsss");
+
   return rows;
 }
 
@@ -18,7 +20,7 @@ async function findOne(id) {
   const a = await pool.query("SELECT name,message FROM contacts WHERE id=$1", [
     id,
   ]);
-  console.log(id, "this is id");
+  console.log(a, "this is aa");
 
   if (a.rows[0] != null) {
     console.log(a.rows[0]);

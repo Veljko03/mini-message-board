@@ -17,8 +17,9 @@ async function addNewContactPost(req, res) {
 
 async function getSingleContact(req, res) {
   let { id } = req.params;
+  console.log(req.params);
+
   id = parseInt(id);
-  id += 1;
   if (isNaN(id) || id <= 0) {
     return res.status(400).send("Invalid ID provided.");
   }
